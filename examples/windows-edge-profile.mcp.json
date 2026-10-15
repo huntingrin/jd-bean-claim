@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "jd-bean-browser": {
+      "command": "cmd.exe",
+      "args": [
+        "/d", "/c", "npx", "-y", "@playwright/mcp@latest",
+        "--browser", "msedge",
+        "--user-data-dir", "C:/Users/YOUR_WINDOWS_USER/AppData/Local/jd-bean-claim/browser-profile"
+      ]
+    }
+  }
+}

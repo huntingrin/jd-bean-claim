@@ -30,6 +30,19 @@ git clone https://github.com/huntingrin/jd-bean-claim.git
 
 不绑定 Ego、Playwright、MCP 或某家模型。实际端到端流程已在一个登录账户的电脑网页与 Ego 浏览器中验证；**其他 Agent/浏览器适配尚未逐一实测**。宿主 Agent 的浏览器权限、登录方式和规则仍然适用。“可移植”不等于每个平台都能零配置运行。
 
+## Windows 使用
+
+**不需要安装 Ego Lite。** 优先复用 Agent 已配置的浏览器工具；尚未配置时，按 [Windows 浏览器接入说明](references/windows-browser.md) 选择：
+
+| 方式 | 登录方式 | 适用场景 |
+| --- | --- | --- |
+| Playwright MCP + Edge／Chrome 扩展 | 连接用户选定的已有页面，复用登录 | 希望使用日常浏览器 |
+| Playwright MCP + 独立配置目录 | 首次自行登录，后续保留会话 | 希望与日常浏览器分开运行 |
+
+提供可复制的 [扩展模式配置](examples/windows-extension.mcp.json) 和 [独立 Edge 配置](examples/windows-edge-profile.mcp.json)，选择其一并按宿主格式合并；不会自动修改 Agent 设置或系统默认浏览器。仅用系统默认浏览器打开网址，不能让 Agent 自动获得页面操作能力。
+
+当前建议 Windows 11 + Node.js 24 LTS；其他系统版本按 [Playwright 官方支持范围](https://playwright.dev/docs/intro#system-requirements) 核对。**配置已做静态核对，Windows 京东端到端流程和不抢焦点行为尚未实测。** 登录、连接授权、验证码仍需本人处理。
+
 ## 可选脚本
 
 - `scripts/collect-state.mjs`：只读提取当前 DOM 的余额、待领项、签到卡片和流水。导出的 `collectBeanState` 是独立页面函数，可传给浏览器 evaluate。选择器变化时需要根据实际页面适配。

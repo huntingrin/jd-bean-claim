@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "jd-bean-browser": {
+      "command": "cmd.exe",
+      "args": ["/d", "/c", "npx", "-y", "@playwright/mcp@latest", "--extension"]
+    }
+  }
+}
